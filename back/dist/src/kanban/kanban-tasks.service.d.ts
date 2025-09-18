@@ -1,0 +1,90 @@
+import { PrismaService } from "../prisma/prisma.service";
+import { CreateKanbanTaskDto } from "./dto/create-kanban-task.dto";
+export declare class KanbanTasksService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    create(userId: string, createKanbanTaskDto: CreateKanbanTaskDto): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }>;
+    findAll(userId: string, columnId?: string): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }[]>;
+    findOne(userId: string, id: string): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }>;
+    update(userId: string, id: string, updateData: any): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }>;
+    remove(userId: string, id: string): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }>;
+    moveTask(userId: string, taskId: string, targetColumnId: string, newPosition: number): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        sortOrder: number;
+        tags: string;
+        columnId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string;
+        assignedTo: string | null;
+        dueDate: Date | null;
+        priority: string | null;
+    }>;
+}
